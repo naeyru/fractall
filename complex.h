@@ -1,13 +1,15 @@
-// complex.h
+#include <stdio.h>
+#include <math.h>
 
 class Complex
 {
 private:
-    double a, b;  // Real component a, imaginary component b
+    double real, imag;  // Real component a, imaginary component b
 
 public:
     // Constructor
-    Complex();
+    Complex(double na, double nb);
+    Complex(Complex& c);
 
     // Operator functions
     Complex operator+(Complex& c);
@@ -19,7 +21,13 @@ public:
     // Member functions
     Complex square();
     Complex conjugate();
-    Complex square_dist();
-    Complex dist();
+    double square_dist();
+    double dist();
+    void dump();
 
+    // Access functions. r == real, i == imaginary
+    double r();
+    double i();
+    void r(double& r);
+    void i(double& i);
 };
